@@ -11,6 +11,8 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
+app.use(express.json());
+
 app.use("/api/v1/auth", authRoutes);
 
 app.listen(PORT, () => {
