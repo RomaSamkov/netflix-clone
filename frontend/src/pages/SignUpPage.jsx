@@ -84,7 +84,7 @@ const SignUpPage = () => {
             </button>
           </form>
           <div className="text-center text-gray-400">
-            Already a member?{" "}
+            Already have an account ?{" "}
             <Link to={"/login"} className="text-red-500 hover:underline">
               Sign in
             </Link>
