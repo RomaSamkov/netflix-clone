@@ -2,15 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
 import { useAuthStore } from "../store/AuthUser";
-// import { useContentStore } from "../store/content";
+import { useContentStore } from "../store/content";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, logout } = useAuthStore();
+  // const { user, logout } = useAuthStore();
+  const { logout } = useAuthStore();
+  const PROFILE_PICS = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
+
+  const image = PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  //   const { setContentType } = useContentStore();
+  const { setContentType } = useContentStore();
 
   return (
     <header className="max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20">
@@ -28,14 +32,14 @@ const Navbar = () => {
           <Link
             to="/"
             className="hover:underline"
-            // onClick={() => setContentType("movie")}
+            onClick={() => setContentType("movie")}
           >
             Movies
           </Link>
           <Link
             to="/"
             className="hover:underline"
-            // onClick={() => setContentType("tv")}
+            onClick={() => setContentType("tv")}
           >
             Tv Shows
           </Link>
@@ -49,11 +53,7 @@ const Navbar = () => {
         <Link to={"/search"}>
           <Search className="size-6 cursor-pointer" />
         </Link>
-        <img
-          src={user.image}
-          alt="Avatar"
-          className="h-8 rounded cursor-pointer"
-        />
+        <img src={image} alt="Avatar" className="h-8 rounded cursor-pointer" />
         <LogOut className="size-6 cursor-pointer" onClick={logout} />
         <div className="sm:hidden">
           <Menu className="size-6 cursor-pointer" onClick={toggleMobileMenu} />
