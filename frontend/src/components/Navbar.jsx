@@ -6,11 +6,7 @@ import { useContentStore } from "../store/content";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // const { user, logout } = useAuthStore();
-  const { logout } = useAuthStore();
-  const PROFILE_PICS = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
-
-  const image = PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
+  const { user, logout } = useAuthStore();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -53,7 +49,11 @@ const Navbar = () => {
         <Link to={"/search"}>
           <Search className="size-6 cursor-pointer" />
         </Link>
-        <img src={image} alt="Avatar" className="h-8 rounded cursor-pointer" />
+        <img
+          src={user.image}
+          alt="Avatar"
+          className="h-8 rounded cursor-pointer"
+        />
         <LogOut className="size-6 cursor-pointer" onClick={logout} />
         <div className="sm:hidden">
           <Menu className="size-6 cursor-pointer" onClick={toggleMobileMenu} />
