@@ -23,7 +23,6 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* desktop navbar items */}
         <div className="hidden sm:flex gap-2 items-center">
           <Link
             to="/"
@@ -60,7 +59,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* mobile navbar items */}
       {isMobileMenuOpen && (
         <div className="w-full sm:hidden mt-4 z-50 bg-black border rounded border-gray-800">
           <Link
