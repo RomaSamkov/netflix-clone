@@ -66,9 +66,7 @@ const WatchPage = () => {
 
     getContentDetails();
   }, [contentType, id]);
-  //   console.log("🚀 ~ WatchPage ~ trailers:", trailers);
-  //   console.log("🚀 ~ WatchPage ~ similarContent:", similarContent);
-  //   console.log("🚀 ~ WatchPage ~ content:", content);
+
   const handleNext = () => {
     if (currentTrailerIdx < trailers.length - 1)
       setCurrentTrailerIdx(currentTrailerIdx + 1);
