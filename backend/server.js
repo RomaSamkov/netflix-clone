@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.route.js";
@@ -11,6 +12,7 @@ import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/db.js";
 
 const app = express();
+app.use(cors());
 
 const PORT = ENV_VARS.PORT;
 
