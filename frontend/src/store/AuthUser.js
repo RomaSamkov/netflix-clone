@@ -24,7 +24,10 @@ export const useAuthStore = create((set) => ({
   login: async (credentials) => {
     set({ isLoggingIn: true });
     try {
-      const response = await axios.post("/api/v1/auth/login", credentials);
+      const response = await axios.post(
+        "https://netflix-clone-vkt0.onrender.com/api/v1/auth/login",
+        credentials
+      );
       set({ user: response.data.user, isLoggingIn: false });
       toast.success("Login is successful.");
     } catch (error) {
@@ -48,7 +51,9 @@ export const useAuthStore = create((set) => ({
   authCheck: async () => {
     set({ isCheckingAuth: true });
     try {
-      const response = await axios.get("/api/v1/auth/authCheck");
+      const response = await axios.get(
+        "https://netflix-clone-vkt0.onrender.com/api/v1/auth/authCheck"
+      );
       set({ user: response.data.user, isCheckingAuth: false });
     } catch {
       set({ isCheckingAuth: false, user: null });
